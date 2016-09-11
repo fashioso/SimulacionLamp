@@ -1,0 +1,2 @@
+C:\Users\Dav\Desktop\Escuela 2016-2\Simulacion\Proyecto\Programacion\SimulacionLamparas\SimulacionLamparas\bin\Debug\SimulacionLamparas.exe.config
+C:\Users\Dav\Desktop\Escuela 2016-2\Simulacion\Proyecto\Programacion\SimulacionLamparas\SimulacionLamp\SimulacionLamparas\bin\Debug\SimulacionLamparas.exe.config
