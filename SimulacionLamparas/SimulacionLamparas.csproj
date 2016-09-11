@@ -53,8 +53,10 @@
       <DependentUpon>Bienvenida.cs</DependentUpon>
     </Compile>
     <Compile Include="Dia.cs" />
+    <Compile Include="Handler.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Year.cs" />
     <EmbeddedResource Include="Bienvenida.resx">
       <DependentUpon>Bienvenida.cs</DependentUpon>
     </EmbeddedResource>
