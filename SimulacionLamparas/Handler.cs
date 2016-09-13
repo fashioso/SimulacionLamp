@@ -18,6 +18,8 @@ namespace SimulacionLamparas
         Dia[] diasSimular;
         double numDiasSimular;
 
+        Sitio itn = new Sitio();
+
         Dia actualDay ;
 
         public Handler(int years, int lamparas, DateTime fecha, RichTextBox rchResults)
@@ -27,14 +29,19 @@ namespace SimulacionLamparas
             numDiasSimular = (fechaFinal - fecha).TotalDays;
             diasSimular = new Dia[Convert.ToInt16(numDiasSimular)];
 
+            itn.Nombre = "Instituto Tecnologico de Nogales";
+            itn.CantidadLampras = lamparas;
+
+            rchResults.AppendText(Environment.NewLine + "Nombre: " + itn.Nombre);
+
             for (int dia = 0; dia < numDiasSimular; dia++)
             {
-
-                diasSimular[dia] = new Dia(fecha);
-                rchResults.AppendText(Environment.NewLine + "Dia " + diasSimular[dia].FechaD.ToShortDateString() + " con Horas de Luz" + diasSimular[dia].HorasLuz.ToString() );
+           
+                diasSimular[dia] = new Dia(fecha); //, menor, mayor);
+                rchResults.AppendText(Environment.NewLine + "Dia " + diasSimular[dia].FechaD.ToShortDateString() + " con Horas de Luz" + diasSimular[dia].HorasLuz.ToString() + " MinTemperature = " + diasSimular[dia].MinTemperatura + " Max Temp = " + diasSimular[dia].MaxTemperatura);
                 fecha = fecha.AddDays(1);
 
-                System.Console.Write("Es el dia " + dia.ToString());
+                //System.Console.Write("Es el dia " + dia.ToString());
 
 
             }
