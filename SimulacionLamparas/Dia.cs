@@ -57,20 +57,31 @@ namespace SimulacionLamparas
             Random maxr = new Random();
             Random minr = new Random();
             int month = fecha.Month;
+            int day = fecha.DayOfYear;
+            int dayHour = fecha.TimeOfDay.Hours;
+            double x;
+            int h = 12;
+            double y;
+            double delta;
+            x = 2 * Math.PI * (day - 1 - (h - 12) / 24) / 365;
+
+            //Ecuacion de la declinacion solar
+            delta = (0.006918 - 0.399912 * Math.Cos(x) + 0.070257 * Math.Sin(x) - 0.006758 * Math.Cos(2 * x)
+            + 0.000907 * Math.Sin(2 * x) - 0.002697 * Math.Cos(3 * x) + 0.001480 * Math.Sin(3 * x)) * 180 / Math.PI;
+
+            //Ecuacion Tiempo
+            y = 229.18 * (0.00075 + 0.001868 * Math.Cos(x) - 0.032077 * Math.Sin(x) - 0.014615 * Math.Cos(2 * x) - 0.040849 * Math.Sin(2 * x));
+
+            double time_offset = (y - 4 * (-110.942100) + 60 * (3.8)) / 60;
+
+            _maxTemperatura = maxr.Next(Convert.ToInt16(minTemps[month - 1]), Convert.ToInt16(maxTemps[month - 1]));
+            _minTemperatura = minr.Next(Convert.ToInt16(minTemps[month - 1]), Convert.ToInt16(minTemps[month - 1]));
 
             
-                _maxTemperatura = maxr.Next(Convert.ToInt16(minTemps[month - 1]), Convert.ToInt16(maxTemps[month - 1]));
-                _minTemperatura = minr.Next(Convert.ToInt16(minTemps[month - 1]), Convert.ToInt16(minTemps[month - 1]));
-            
-
-
             _fechaD = fecha;
-            _horasLuz = 12.5;
-            _horasObscuro = 24 - 12.5;
-
+            _horasLuz = time_offset;
+            _horasObscuro = 24 - _horasLuz;
             
-
-
         }
 
 

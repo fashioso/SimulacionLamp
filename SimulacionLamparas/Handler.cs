@@ -40,7 +40,7 @@ namespace SimulacionLamparas
                 diasSimular[dia] = new Dia(fecha); //, menor, mayor);
                 rchResults.AppendText(Environment.NewLine + "Dia " + diasSimular[dia].FechaD.ToShortDateString() + " con Horas de Luz" + diasSimular[dia].HorasLuz.ToString() + " MinTemperature = " + diasSimular[dia].MinTemperatura + " Max Temp = " + diasSimular[dia].MaxTemperatura);
                 fecha = fecha.AddDays(1);
-
+                //diasSimular[dia].
                 //System.Console.Write("Es el dia " + dia.ToString());
 
 
